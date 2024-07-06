@@ -110,6 +110,7 @@ impl ProcessHandle {
         Ok(value)
     }
 
+    // implemented by labrys
     pub fn read_u32(&self, address: u64) -> Result<u32, &'static str> {
         let mut buf = [0; 4];
         let bytes_read = self.read_data(address, &mut buf)?;
