@@ -14,5 +14,7 @@ Usage
 On starting the program, it'll bring up a command line which displays info.
 
 To save a state, press D-pad Left. To load a state, press D-pad Right.
+
 You can press D-pad Up or D-pad Down to increment and decrement the saveslot respectively, for a total of 8 save slots.
+
 To set your lives to 99, you can hold Y and press D-pad Up.
