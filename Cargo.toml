@@ -1,7 +1,7 @@
 [package]
 name = "onvars_tool"
-version = "1.0.0"
-authors = ["Isaac Lozano <Isaac-Lozano@users.noreply.github.com>"]
+version = "2.0.0"
+authors = ["Isaac Lozano <Isaac-Lozano@users.noreply.github.com>", "Labrys", "Katie4"]
 edition = "2018"
 
 [dependencies]

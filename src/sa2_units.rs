@@ -86,6 +86,66 @@ impl SaveStateUnit for TimeUnit {
     }
 }
 
+pub struct ScoreUnit([u8;0x4]);
+
+impl ScoreUnit {
+    pub fn new() -> ScoreUnit {
+        ScoreUnit([0;0x4])
+    }
+}
+
+impl SaveStateUnit for ScoreUnit {
+    fn save(&mut self, handle: &ProcessHandle) -> Result<(), &'static str> {
+        handle.read_data(0x0174B050, &mut self.0)?;
+        Ok(())
+    }
+
+    fn load(&self, handle: &ProcessHandle) -> Result<(), &'static str> {
+        handle.write_data(0x0174B050, &self.0)?;
+        Ok(())
+    }
+}
+
+pub struct RingUnit([u8;0x2]);
+
+impl RingUnit {
+    pub fn new() -> RingUnit {
+        RingUnit([0;0x2])
+    }
+}
+
+impl SaveStateUnit for RingUnit {
+    fn save(&mut self, handle: &ProcessHandle) -> Result<(), &'static str> {
+        handle.read_data(0x0174B028, &mut self.0)?;
+        Ok(())
+    }
+
+    fn load(&self, handle: &ProcessHandle) -> Result<(), &'static str> {
+        handle.write_data(0x0174B028, &self.0)?;
+        Ok(())
+    }
+}
+
+pub struct LivesUnit([u8;0x2]);
+
+impl LivesUnit {
+    pub fn new() -> LivesUnit {
+        LivesUnit([0;0x2])
+    }
+}
+
+impl SaveStateUnit for LivesUnit {
+    fn save(&mut self, handle: &ProcessHandle) -> Result<(), &'static str> {
+        handle.read_data(0x0174B024, &mut self.0)?;
+        Ok(())
+    }
+
+    fn load(&self, handle: &ProcessHandle) -> Result<(), &'static str> {
+        handle.write_data(0x0174B024, &self.0)?;
+        Ok(())
+    }
+}
+
 pub struct GravityUnit([u8;0xc]);
 
 impl GravityUnit {
