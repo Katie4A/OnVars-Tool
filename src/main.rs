@@ -157,23 +157,13 @@ fn main() {
 
         // incrementing and decrementing saveslots
         if buttons_pressed & 0x8 != 0 {
-            // if it goes past 7, wrap to 0
-            if save_slot == 7 {
-                save_slot = 0;
-            } else {
-                save_slot += 1;
-            }
+            save_slot = (save_slot + 1) % 8;
             println!("Savestate slot: {}", save_slot+1);
         }
 
         if buttons_pressed & 0x4 != 0 {
-            // if it goes past 0, wrap to 7
-            if save_slot == 0 {
-                save_slot = 7;
-            } else {
-                save_slot -= 1;
-            }
-            println!("Savestate slot: {}", save_slot+1);
+            save_slot = ((save_slot as u32).wrapping_sub(1) % 8) as usize;
+            println!("Savestate slot: {}" , save_slot+1);
         }
 
         // save state
